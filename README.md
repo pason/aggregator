@@ -6,13 +6,16 @@ Usage:
 
 
 
-	aggregator = Pason::Aggregator.new(	:from_file_path => 'csv/file1.csv',
+	aggregator = Pason::Aggregator.new(	
+						:from_file_path => 'csv/file1.csv',
 						:to_file_path => 'csv/file2.csv',
 						:from_file_id_column => 1,
 						:to_file_id_column => 3,
 						:from_value_column => 2, 
-						:to_value_column => 4)
+						:to_value_column => 4
+					)
 	aggregator.parse
+
 
 OR
 
