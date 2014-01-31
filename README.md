@@ -2,12 +2,11 @@ CSV AGGREGATOR
 
 Usage:
 
-- create and add permisions to write to tmp/aggregator folder
+create and add permisions to write to tmp/aggregator folder
 
 
 
-	aggregator = Pason::Aggregator.new(	
-						:from_file_path => 'csv/file1.csv',
+	aggregator = Pason::Aggregator.new(:from_file_path => 'csv/file1.csv',
 						:to_file_path => 'csv/file2.csv',
 						:from_file_id_column => 1,
 						:to_file_id_column => 3,
