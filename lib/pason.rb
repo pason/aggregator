@@ -5,16 +5,17 @@ module Pason
 	class Aggregator
 
 		attr_accessor :from_file_path, :to_file_path, :from_value_column, :to_value_column, :from_file_id_column, :to_file_id_column
-		OUTPUT_FOLDER = 'tmp/aggregator/'
+		attr_accessor :output_folder
 
 
 		def initialize(options = {})
 
-			raise Exception.new('Argument not a Hash...') unless options.is_a? Hash
+			raise Exception.new('Argument not a Hash') unless options.is_a? Hash
 
 			#Default values
 			@from_value_column = 2
 			@to_value_column = 4
+			@output_folder = 'tmp/aggregator/'
 
 			#pass parameters
 			options.each do |name, value|
@@ -39,11 +40,11 @@ module Pason
 					to_row[@to_value_column-1] = from_row[@from_value_column-1]
 				end
 			
-				CSV.open(OUTPUT_FOLDER + output_file_name, "a+") {|csv| csv << to_row}
+				CSV.open(@output_folder + output_file_name, "a+") {|csv| csv << to_row}
 
 			end
 
-			return OUTPUT_FOLDER + output_file_name 			
+			return @output_folder + output_file_name 			
 		end
 
 
